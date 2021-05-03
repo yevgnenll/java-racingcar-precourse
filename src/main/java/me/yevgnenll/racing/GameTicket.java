@@ -29,4 +29,11 @@ public class GameTicket {
 		return result;
 	}
 
+	public List<OrderSheet> getOrderSheets() {
+		List<OrderSheet> result = new ArrayList<>();
+		for (int i = 0; i < carNames.size(); i ++) {
+			result.add(new OrderSheet(carNames, i));
+		}
+		return result;
+	}
 }

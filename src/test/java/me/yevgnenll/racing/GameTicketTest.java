@@ -2,6 +2,8 @@ package me.yevgnenll.racing;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -36,4 +38,11 @@ public class GameTicketTest {
 		assertThat(oneCar.getCarNames().get(0)).isEqualTo("nano");
 	}
 
+	@Test
+	@DisplayName(value = "GameTicket 은 공장에 제출할 자동차 주문서를 입력받은 이름의 개수만큼 만들어낸다")
+	void writeOrderSheets() {
+		List<OrderSheet> orderSheets = ticket.getOrderSheets();
+
+		assertThat(orderSheets.size()).isEqualTo(4);
+	}
 }
