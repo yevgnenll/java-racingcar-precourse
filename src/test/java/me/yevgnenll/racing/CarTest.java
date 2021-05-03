@@ -12,8 +12,8 @@ public class CarTest {
 	@DisplayName(value = "이름을 입력 받으면 해당 이름의 자동차가 생성된다")
 	void generateCar() {
 		GameTicket ticket = new GameTicket("kaki,dodo",4);
-		Car kaki = new Car(ticket, 0);
-		Car dodo = new Car(ticket, 1);
+		Car kaki = new Car(new OrderSheet(ticket.getCarNames(), 0));
+		Car dodo = new Car(new OrderSheet(ticket.getCarNames(), 1));
 
 		assertThat(kaki.getName()).isEqualTo("kaki");
 		assertThat(dodo.getName()).isEqualTo("dodo");

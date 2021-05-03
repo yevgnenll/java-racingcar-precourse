@@ -4,8 +4,8 @@ public class Car {
 
 	private final String name;
 
-	public Car(GameTicket gameTicket, int index) {
-		name = gameTicket.getCarNames().get(index);
+	public Car(OrderSheet orderSheet) {
+		name = orderSheet.getName();
 	}
 
 	public String getName() {
