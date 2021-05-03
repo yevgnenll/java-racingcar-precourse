@@ -16,13 +16,13 @@ public class CarFactoryTest {
 	}
 
 	@Test
-	@DisplayName(value = "ticket 을 통해 경주에 참여할 자동자들을 만든다")
+	@DisplayName(value = "사용자가 입력하여 콤마(,)로 구분한 이름의 개수만큼 자동차가 생성된다")
 	void carFactory() {
 		assertThat(factory.getCars().size()).isEqualTo(2);
 	}
 
 	@Test
-	@DisplayName(value = "GameTicket에 명시된 count 를 factory 를 소유한다.")
+	@DisplayName(value = "사용자가 입력한 count 가 factory 에 저장된다.")
 	void count() {
 		assertThat(factory.getCount()).isEqualTo(5);
 	}
