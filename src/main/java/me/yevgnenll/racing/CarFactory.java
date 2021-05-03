@@ -8,9 +8,17 @@ public class CarFactory {
 	private final List<Car> racingCars;
 	private final int count;
 
-	public CarFactory(GameTicket gameTicket) {
-		racingCars = generateCars(gameTicket);
-		count = gameTicket.getCount();
+	public CarFactory(String carNames, int count) {
+		this.count = count;
+		racingCars = generateCars(carNames);
+	}
+
+	private List<Car> generateCars(String carNames) {
+		List<Car> racingCars = new ArrayList<>();
+		for (String name : carNames.split(",")) {
+			racingCars.add(new Car(name));
+		}
+		return racingCars;
 	}
 
 	public List<Car> getCars() {
@@ -21,11 +29,4 @@ public class CarFactory {
 		return count;
 	}
 
-	private List<Car> generateCars(GameTicket gameTicket) {
-		final List<Car> racingCars = new ArrayList<>();
-		for (OrderSheet carOrder : gameTicket.getOrderSheets()) {
-			racingCars.add(new Car(carOrder));
-		}
-		return racingCars;
-	}
 }

@@ -12,7 +12,7 @@ public class CarFactoryTest {
 
 	@BeforeEach
 	void init() {
-		factory = new CarFactory(new GameTicket("kaki,gom", 5));
+		factory = new CarFactory("kaki,gom", 5);
 	}
 
 	@Test
