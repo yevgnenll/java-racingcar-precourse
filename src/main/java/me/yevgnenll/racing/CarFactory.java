@@ -8,9 +8,9 @@ public class CarFactory {
 	private final List<Car> racingCars;
 	private final int count;
 
-	public CarFactory(String carNames, int count) {
+	public CarFactory(String userInput, int count) {
 		this.count = count;
-		racingCars = generateCars(carNames);
+		racingCars = generateCars(userInput);
 	}
 
 	private List<Car> generateCars(String carNames) {
