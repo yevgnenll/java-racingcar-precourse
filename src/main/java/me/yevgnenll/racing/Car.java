@@ -12,4 +12,15 @@ public class Car {
 	public String getName() {
 		return name;
 	}
+
+	public void race(Speed speed) {
+		if (speed.isRun()) {
+			position++;
+		}
+	}
+
+	protected int getPosition() {
+		return position;
+	}
+
 }

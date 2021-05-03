@@ -17,4 +17,18 @@ public class CarTest {
 		assertThat(dodo.getName()).isEqualTo("dodo");
 	}
 
+	@Test
+	@DisplayName(value = "난수를 발생시키는 객체를 전달 받으면 달린다")
+	void runOnStay() {
+		Car kaki = new Car("kaki");
+
+		int go = 0;
+		for (int i = 0; i < 5; i ++) {
+			Speed speed = new Speed();
+			go += speed.isRun() ? 1 : 0;
+			kaki.race(speed);
+		}
+		assertThat(kaki.getPosition()).isEqualTo(go);
+	}
+
 }
