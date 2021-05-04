@@ -5,18 +5,22 @@ public class RacingTrack {
 	private final Cars cars;
 	private int count;
 	private final Speed speed;
+	private final OutputConsole output;
 
-	public RacingTrack(CarFactory carFactory) {
+	public RacingTrack(CarFactory carFactory, OutputConsole outputConsole) {
 		cars = carFactory.getCars();
 		count = carFactory.getCount();
 		speed = new Speed();
+		output = outputConsole;
 	}
 
-	public void racingCars() {
+	public Cars racingCars() {
 		while (!isFinish()) {
 			driveCar();
 			count--;
+			System.out.println(output.calculateString(cars));
 		}
+		return cars;
 	}
 
 	public boolean isFinish() {
