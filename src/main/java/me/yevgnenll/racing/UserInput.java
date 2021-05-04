@@ -11,11 +11,24 @@ public class UserInput {
 	private Scanner scanner = new Scanner(System.in);
 
 	public CarFactory interactUser() {
+		String carNames = userInputCarNames();
+		int count = userInputCount();
+		return new CarFactory(carNames, count);
+	}
+
+	private String userInputCarNames() {
 		print(USER_INPUT_CAR_NAME_MESSAGE);
-		String carNames = scanner.next();
+		return scanner.next();
+	}
+
+	private int userInputCount() {
 		print(USER_INPUT_COUNT_MESSAGE);
 		int count = scanner.nextInt();
-		return new CarFactory(carNames, count);
+		while (count < 1) {
+			print(USER_INPUT_COUNT_MESSAGE);
+			count = scanner.nextInt();
+		}
+		return count;
 	}
 
 	private void print(String message) {
