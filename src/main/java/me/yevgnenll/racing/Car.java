@@ -19,7 +19,7 @@ public class Car {
 		}
 	}
 
-	protected int getPosition() {
+	public int getPosition() {
 		return position;
 	}
 
@@ -38,8 +38,7 @@ public class Car {
 	@Override
 	public String toString() {
 		StringBuilder result = new StringBuilder(name);
-		result.append(":")
-			.append(" ")
+		result.append(": ")
 			.append(getLoad());
 		return result.toString();
 	}
