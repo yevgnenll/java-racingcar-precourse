@@ -2,6 +2,8 @@ package me.yevgnenll.racing;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.Arrays;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -20,6 +22,6 @@ public class CarsTest {
 	void carsNames() {
 		CarFactory carFactory = new CarFactory("kaki,dodo,gom", 7);
 
-		assertThat(carFactory.getCars().getCarNames()).isEqualTo("kaki, dodo, gom");
+		assertThat(carFactory.getCars().getCarNames()).isEqualTo(Arrays.asList("kaki", "dodo", "gom"));
 	}
 }
