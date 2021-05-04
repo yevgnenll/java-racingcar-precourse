@@ -34,4 +34,13 @@ public class Car {
 		}
 		return result.toString();
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder result = new StringBuilder(name);
+		result.append(":")
+			.append(" ")
+			.append(getLoad());
+		return result.toString();
+	}
 }
