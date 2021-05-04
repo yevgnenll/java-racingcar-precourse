@@ -67,6 +67,8 @@ public class Referee {
 			Cars drivingCars = racingTrack.racingCars();
 			output.printDrivingCars(drivingCars);
 		}
+		Cars winners = getWinners(racingTrack.getParticipantCars());
+		output.printWinner(winners);
 	}
 
 }

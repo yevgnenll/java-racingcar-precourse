@@ -22,6 +22,10 @@ public class RacingTrack {
 		return count <= 0;
 	}
 
+	public Cars getParticipantCars() {
+		return cars;
+	}
+
 	protected int getCount() {
 		return count;
 	}
