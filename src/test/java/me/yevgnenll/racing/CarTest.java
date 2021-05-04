@@ -31,4 +31,12 @@ public class CarTest {
 		assertThat(kaki.getPosition()).isEqualTo(go);
 	}
 
+	@Test
+	@DisplayName(value = "speed 로 true를 반한봗은 횟수 만큼 -을 그린다")
+	void load() {
+		Car kaki = new Car("kaki");
+		kaki.setPosition(3);
+		assertThat(kaki.getLoad()).isEqualTo("---");
+	}
+
 }

@@ -23,4 +23,15 @@ public class Car {
 		return position;
 	}
 
+	protected void setPosition(int position) {
+		this.position = position;
+	}
+
+	public String getLoad() {
+		StringBuilder result = new StringBuilder();
+		for (int i = 0; i < position; i++) {
+			result.append("-");
+		}
+		return result.toString();
+	}
 }
