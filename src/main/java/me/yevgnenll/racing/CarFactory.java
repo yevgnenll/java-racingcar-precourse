@@ -5,6 +5,7 @@ import java.util.List;
 
 public class CarFactory {
 
+	private static final String CAR_NAME_SPLIT_TOKEN = ",";
 	private final List<Car> racingCars;
 	private final int count;
 
@@ -15,7 +16,7 @@ public class CarFactory {
 
 	private List<Car> generateCars(String carNames) {
 		List<Car> racingCars = new ArrayList<>();
-		for (String name : carNames.split(",")) {
+		for (String name : carNames.split(CAR_NAME_SPLIT_TOKEN)) {
 			racingCars.add(new Car(name));
 		}
 		return racingCars;
