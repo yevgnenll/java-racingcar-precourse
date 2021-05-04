@@ -14,20 +14,20 @@ public class CarFactory {
 		racingCars = generateCars(userInput);
 	}
 
-	private List<Car> generateCars(String carNames) {
-		List<Car> racingCars = new ArrayList<>();
-		for (String name : carNames.split(CAR_NAME_SPLIT_TOKEN)) {
-			racingCars.add(new Car(name));
-		}
-		return racingCars;
-	}
-
 	public List<Car> getCars() {
 		return racingCars;
 	}
 
 	public int getCount() {
 		return count;
+	}
+
+	private List<Car> generateCars(String carNames) {
+		List<Car> racingCars = new ArrayList<>();
+		for (String name : carNames.split(CAR_NAME_SPLIT_TOKEN)) {
+			racingCars.add(new Car(name));
+		}
+		return racingCars;
 	}
 
 }
