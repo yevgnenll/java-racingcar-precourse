@@ -30,21 +30,35 @@ public class Referee {
 	}
 
 	public Cars getWinners(Cars cars) {
-		int maxDistance = 0;
-		List<Car> winners = new ArrayList<>();
-		for (Car car : cars.getCarList()) {
-			if (!isFurther(maxDistance, car)) {
-				continue;
-			}
-			maxDistance = car.getPosition();
-		}
-
-		for (Car car : cars.getCarList()) {
-			if (maxDistance == car.getPosition()) {
-				winners.add(car);
-			}
-		}
+		int maxDistance = getMaxPosition(cars);
+		List<Car> winners = getFarthestCars(maxDistance, cars);
 		return new Cars(winners);
+	}
+
+	private int getMaxPosition(Cars cars) {
+		int maxDistance = 0;
+		for (Car car : cars.getCarList()) {
+			maxDistance = Math.max(car.getPosition(), maxDistance);
+		}
+		return maxDistance;
+	}
+
+	private List<Car> getFarthestCars(int maxDistance, Cars cars) {
+		List<Car> result = new ArrayList<>();
+		for (Car car : cars.getCarList()) {
+			filterDistanceCar(car, maxDistance, result);
+		}
+		return result;
+	}
+
+	private void filterDistanceCar(Car car, int maxDistance, List<Car> winners) {
+		if (isSameDistance(car, maxDistance)) {
+			winners.add(car);
+		}
+	}
+
+	private boolean isSameDistance(Car car, int maxDistance) {
+		return maxDistance == car.getPosition();
 	}
 
 	private void raceStart(RacingTrack racingTrack) {
@@ -55,7 +69,4 @@ public class Referee {
 		}
 	}
 
-	private boolean isFurther(int currentMaxDistance, Car car) {
-		return currentMaxDistance < car.getPosition();
-	}
 }
