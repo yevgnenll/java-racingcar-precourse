@@ -1,6 +1,8 @@
 import static org.assertj.core.api.Assertions.*;
 
-import org.assertj.core.api.Assertions;
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -25,7 +27,23 @@ public class RefereeTest {
 				car.race(new MockSpeedTrue());
 			}
 		}
-		assertThat(referee.getWinner(carFactory.getCars()).getName()).isEqualTo("kaki");
+		assertThat(referee.getWinners(carFactory.getCars()).getCarNames()).isEqualTo(Arrays.asList("kaki"));
+	}
+
+	@Test
+	@DisplayName(value = "공동 우승인 경우 우승자는 여러명 나온다")
+	void findWinners() {
+		Referee referee = new Referee(new UserInput(), new OutputConsole());
+
+		CarFactory carFactory = new CarFactory("kaki,dodo,zelda,cho,park", 6);
+		Cars cars = carFactory.getCars();
+		for (Car car : cars.getCarList()) {
+			if ("kaki".equals(car.getName()) || "dodo".equals(car.getName())) {
+				car.race(new MockSpeedTrue());
+			}
+		}
+		assertThat(referee.getWinners(carFactory.getCars()).getCarNames()).isEqualTo(Arrays.asList("kaki", "dodo"));
+
 	}
 
 }

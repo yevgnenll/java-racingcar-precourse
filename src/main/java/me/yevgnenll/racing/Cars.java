@@ -1,5 +1,6 @@
 package me.yevgnenll.racing;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
@@ -12,5 +13,13 @@ public class Cars {
 
 	public List<Car> getCarList() {
 		return carList;
+	}
+
+	public List<String> getCarNames() {
+		List<String> result = new ArrayList<>();
+		for (Car car : carList) {
+			result.add(car.getName());
+		}
+		return result;
 	}
 }

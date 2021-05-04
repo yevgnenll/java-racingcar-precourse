@@ -14,4 +14,12 @@ public class CarsTest {
 
 		assertThat(carFactory.getCars().getCarList().size()).isEqualTo(3);
 	}
+
+	@Test
+	@DisplayName(value = "현재 저장된 자동차의 모든 이름만 반환한다")
+	void carsNames() {
+		CarFactory carFactory = new CarFactory("kaki,dodo,gom", 7);
+
+		assertThat(carFactory.getCars().getCarNames()).isEqualTo("kaki, dodo, gom");
+	}
 }

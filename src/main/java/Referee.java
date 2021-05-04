@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 import me.yevgnenll.racing.Car;
 import me.yevgnenll.racing.CarFactory;
 import me.yevgnenll.racing.Cars;
@@ -26,17 +29,22 @@ public class Referee {
 		raceStart(racingTrack);
 	}
 
-	public Car getWinner(Cars cars) {
+	public Cars getWinners(Cars cars) {
 		int maxDistance = 0;
-		Car winner = null;
+		List<Car> winners = new ArrayList<>();
 		for (Car car : cars.getCarList()) {
 			if (!isFurther(maxDistance, car)) {
 				continue;
 			}
 			maxDistance = car.getPosition();
-			winner = car;
 		}
-		return winner;
+
+		for (Car car : cars.getCarList()) {
+			if (maxDistance == car.getPosition()) {
+				winners.add(car);
+			}
+		}
+		return new Cars(winners);
 	}
 
 	private void raceStart(RacingTrack racingTrack) {
