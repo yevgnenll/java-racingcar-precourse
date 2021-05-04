@@ -18,7 +18,7 @@ public class CarFactoryTest {
 	@Test
 	@DisplayName(value = "사용자가 입력하여 콤마(,)로 구분한 이름의 개수만큼 자동차가 생성된다")
 	void carFactory() {
-		assertThat(factory.getCars().size()).isEqualTo(2);
+		assertThat(factory.getCars().getCarList().size()).isEqualTo(2);
 	}
 
 	@Test

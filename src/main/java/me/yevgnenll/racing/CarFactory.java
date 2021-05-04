@@ -14,8 +14,8 @@ public class CarFactory {
 		racingCars = generateCars(userInput);
 	}
 
-	public List<Car> getCars() {
-		return racingCars;
+	public Cars getCars() {
+		return new Cars(racingCars);
 	}
 
 	public int getCount() {

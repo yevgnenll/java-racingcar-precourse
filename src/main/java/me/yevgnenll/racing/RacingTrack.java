@@ -1,10 +1,8 @@
 package me.yevgnenll.racing;
 
-import java.util.List;
-
 public class RacingTrack {
 
-	private final List<Car> cars;
+	private final Cars cars;
 	private int count;
 	private final Speed speed;
 
@@ -30,7 +28,7 @@ public class RacingTrack {
 	}
 
 	private void driveCar() {
-		for (Car car : cars) {
+		for (Car car : cars.getCarList()) {
 			car.race(speed);
 		}
 	}
