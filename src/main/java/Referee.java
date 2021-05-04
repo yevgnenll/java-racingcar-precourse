@@ -17,15 +17,13 @@ public class Referee {
 
 	public static void main(String[] args) {
 		Referee referee = new Referee(new UserInput(), new OutputConsole());
-		referee.start();
+		referee.gameStart();
 	}
 
-	public void start() {
+	public void gameStart() {
 		CarFactory carFactory = input.interactUser();
-		RacingTrack racingTrack = new RacingTrack(carFactory, output);
-		Cars cars = racingTrack.racingCars();
-
-		output.racingProgress(cars);
+		RacingTrack racingTrack = new RacingTrack(carFactory);
+		raceStart(racingTrack);
 	}
 
 	public Car getWinner(Cars cars) {
@@ -39,6 +37,14 @@ public class Referee {
 			winner = car;
 		}
 		return winner;
+	}
+
+	private void raceStart(RacingTrack racingTrack) {
+		output.resultMessage();
+		while (!racingTrack.isFinish()) {
+			Cars drivingCars = racingTrack.racingCars();
+			output.printDrivingCars(drivingCars);
+		}
 	}
 
 	private boolean isFurther(int currentMaxDistance, Car car) {

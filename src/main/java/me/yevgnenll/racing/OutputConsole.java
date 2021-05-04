@@ -2,11 +2,14 @@ package me.yevgnenll.racing;
 
 public class OutputConsole {
 
-	private static final String OUTPUT_MESSAGE = "실행 결과\n";
+	private static final String OUTPUT_MESSAGE = "\n실행 결과";
 
-	public void racingProgress(Cars cars) {
-		System.out.println(OUTPUT_MESSAGE);
-		System.out.println(calculateString(cars));
+	public void resultMessage() {
+		print(OUTPUT_MESSAGE);
+	}
+
+	public void printDrivingCars(Cars cars) {
+		print(calculateString(cars));
 	}
 
 	public String calculateString(Cars cars) {
@@ -16,6 +19,10 @@ public class OutputConsole {
 				.append("\n");
 		}
 		return result.toString();
+	}
+
+	private void print(String message) {
+		System.out.println(message);
 	}
 
 }

@@ -27,6 +27,10 @@ public class RacingTrackTest {
 	@DisplayName(value = "실행 회수를 모두 소진하면 게임은 종료된다")
 	void consumeCount() {
 		racingTrack.racingCars();
+		racingTrack.racingCars();
+		racingTrack.racingCars();
+		racingTrack.racingCars();
+		racingTrack.racingCars();
 		assertThat(racingTrack.isFinish()).isTrue();
 	}
 
